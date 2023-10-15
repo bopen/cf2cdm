@@ -1,12 +1,12 @@
 """Translate xarray dataset to a custom data model."""
-
-# Copyright 2017, European Union.
+#
+# Copyright 2017-2021 European Centre for Medium-Range Weather Forecasts (ECMWF).
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#   http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -23,3 +23,8 @@ except ImportError:  # pragma: no cover
     __version__ = "999"
 
 __all__ = ["__version__"]
+
+from .cfcoords import translate_coords
+from .datamodels import CDS, ECMWF
+
+__all__ = ["CDS", "ECMWF", "translate_coords"]

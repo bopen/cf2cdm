@@ -31,7 +31,9 @@ Before pushing to GitHub, run the following commands:
 ## License
 
 ```
-Copyright 2017, European Union.
+Copyright 2017-2021 European Centre for Medium-Range Weather Forecasts (ECMWF).
+Copyright 2023 B-Open Solutions srl.
+
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
