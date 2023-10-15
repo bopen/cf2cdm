@@ -1,4 +1,5 @@
 import sys
+from typing import Any, Dict, Hashable
 
 import numpy as np
 import pytest
@@ -77,7 +78,7 @@ def da3() -> xr.Dataset:
 
 
 def test_match_values() -> None:
-    mapping = {"callable": len, "int": 1}  # type: T.Dict[T.Hashable, T.Any]
+    mapping: Dict[Hashable, Any] = {"callable": len, "int": 1}
     res = cfcoords.match_values(callable, mapping)
 
     assert res == ["callable"]

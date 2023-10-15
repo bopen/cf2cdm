@@ -19,22 +19,25 @@
 
 import functools
 import logging
-import typing as T
+from typing import Any, Callable, Dict, Hashable, List, Mapping
 
 import xarray as xr
 
 from . import cfunits
 
-CoordModelType = T.Dict[str, T.Dict[str, str]]
-CoordTranslatorType = T.Callable[[str, xr.Dataset, CoordModelType], xr.Dataset]
+# force ruff to keep comment types
+_ = [Any, Mapping, Hashable, List]
+
+CoordModelType = Dict[str, Dict[str, str]]
+CoordTranslatorType = Callable[[str, xr.Dataset, CoordModelType], xr.Dataset]
 
 COORD_MODEL: CoordModelType = {}
-COORD_TRANSLATORS: T.Dict[str, CoordTranslatorType] = {}
+COORD_TRANSLATORS: Dict[str, CoordTranslatorType] = {}
 LOG = logging.getLogger(__name__)
 
 
 def match_values(match_value_func, mapping):
-    # type: (T.Callable[[T.Any], bool], T.Mapping[T.Hashable, T.Any]) -> T.List[str]
+    # type: (Callable[[Any], bool], Mapping[Hashable, Any]) -> List[str]
     matched_names = []
     for name, value in mapping.items():
         if match_value_func(value):
@@ -60,7 +63,7 @@ def coord_translator(
     default_out_name: str,
     default_units: str,
     default_direction: str,
-    is_cf_type: T.Callable[[xr.IndexVariable], bool],
+    is_cf_type: Callable[[xr.IndexVariable], bool],
     cf_type: str,
     data: xr.Dataset,
     coord_model: CoordModelType = COORD_MODEL,
@@ -206,7 +209,7 @@ COORD_TRANSLATORS["forecastMonth"] = functools.partial(
 def translate_coords(
     data, coord_model=COORD_MODEL, errors="warn", coord_translators=COORD_TRANSLATORS
 ):
-    # type: (xr.Dataset, CoordModelType, str, T.Dict[str, CoordTranslatorType]) -> xr.Dataset
+    # type: (xr.Dataset, CoordModelType, str, Dict[str, CoordTranslatorType]) -> xr.Dataset
     for cf_name, translator in coord_translators.items():
         try:
             data = translator(cf_name, data, coord_model)

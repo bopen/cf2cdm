@@ -13,6 +13,7 @@ classifiers = [
   "Programming Language :: Python :: 3.11",
   "Topic :: Scientific/Engineering"
 ]
+dependencies = ["xarray"]
 description = "Translate xarray dataset to a custom data model"
 dynamic = ["version"]
 license = {file = "LICENSE"}

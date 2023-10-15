@@ -1,6 +1,6 @@
 import os.path
 
-from cfgrib import xarray_store
+import xarray as xr
 
 from cf2cdm import cfcoords, datamodels
 
@@ -10,7 +10,7 @@ TEST_DATA2 = os.path.join(SAMPLE_DATA_FOLDER, "lambert_grid.grib")
 
 
 def test_cds() -> None:
-    ds = xarray_store.open_dataset(TEST_DATA1)
+    ds = xr.open_dataset(TEST_DATA1)
 
     res = cfcoords.translate_coords(ds, coord_model=datamodels.CDS)
 
@@ -31,7 +31,7 @@ def test_cds() -> None:
         "time",
     }
 
-    ds = xarray_store.open_dataset(TEST_DATA2)
+    ds = xr.open_dataset(TEST_DATA2)
 
     res = cfcoords.translate_coords(ds, coord_model=datamodels.CDS)
 
@@ -47,7 +47,7 @@ def test_cds() -> None:
 
 
 def test_ecmwf() -> None:
-    ds = xarray_store.open_dataset(TEST_DATA1)
+    ds = xr.open_dataset(TEST_DATA1)
 
     res = cfcoords.translate_coords(ds, coord_model=datamodels.ECMWF)
 
@@ -62,7 +62,7 @@ def test_ecmwf() -> None:
         "valid_time",
     }
 
-    ds = xarray_store.open_dataset(TEST_DATA2)
+    ds = xr.open_dataset(TEST_DATA2)
 
     res = cfcoords.translate_coords(ds, coord_model=datamodels.ECMWF)
 
