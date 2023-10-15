@@ -1,6 +1,6 @@
 # Welcome to cf2cdm's documentation!
 
-Translate xarray dataset to a custom data model.
+Translates cf-compliant xarray datasets to a custom data model.
 
 ```{toctree}
 :caption: 'Contents:'

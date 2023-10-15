@@ -14,7 +14,7 @@ classifiers = [
   "Topic :: Scientific/Engineering"
 ]
 dependencies = ["xarray"]
-description = "Translate xarray dataset to a custom data model"
+description = "Translates cf-compliant xarray datasets to a custom data model"
 dynamic = ["version"]
 license = {file = "LICENSE"}
 name = "cf2cdm"

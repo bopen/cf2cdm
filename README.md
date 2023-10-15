@@ -1,4 +1,4 @@
-Translate xarray datasets to a custom data model.
+Translates cf-compliant xarray datasets to a custom data model.
 
 Contrary to netCDF the GRIB data format is not self-describing and several details of the mapping
 to the *Unidata Common Data Model* are arbitrarily set by the software components decoding the format.

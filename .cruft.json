@@ -6,7 +6,7 @@
     "cookiecutter": {
       "project_name": "cf2cdm",
       "project_slug": "cf2cdm",
-      "project_short_description": "Translate xarray dataset to a custom data model",
+      "project_short_description": "Translates cf-compliant xarray datasets to a custom data model",
       "copyright_holder": "European Union",
       "copyright_year": "2017",
       "mypy_strict": true,
