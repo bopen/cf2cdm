@@ -1,32 +1,73 @@
-# cf2cdm
+Translate xarray datasets to a custom data model.
 
-Translate xarray dataset to a custom data model
+Contrary to netCDF the GRIB data format is not self-describing and several details of the mapping
+to the *Unidata Common Data Model* are arbitrarily set by the software components decoding the format.
+Details like names and units of the coordinates are particularly important because
+*xarray* broadcast and selection rules depend on them.
+`cf2cfm` is a small coordinate translation module that make it easy to
+translate CF compliant coordinates to a user-defined
+custom data model with set `out_name`, `units` and `stored_direction`.
 
-## Quick Start
+For example to translate a *cfgrib* styled `xr.Dataset` to the classic *ECMWF* coordinate
+naming conventions you can:
 
 ```python
+
 >>> import cf2cdm
-
+>>> ds = xr.open_dataset('era5-levels-members.grib', engine='cfgrib')
+>>> cf2cdm.translate_coords(ds, cf2cdm.ECMWF)
+<xarray.Dataset>
+Dimensions:     (number: 10, time: 4, level: 2, latitude: 61, longitude: 120)
+Coordinates:
+  * number      (number) int64 0 1 2 3 4 5 6 7 8 9
+  * time        (time) datetime64[ns] 2017-01-01 ... 2017-01-02T12:00:00
+    step        timedelta64[ns] ...
+  * level       (level) float64 850.0 500.0
+  * latitude    (latitude) float64 90.0 87.0 84.0 81.0 ... -84.0 -87.0 -90.0
+  * longitude   (longitude) float64 0.0 3.0 6.0 9.0 ... 348.0 351.0 354.0 357.0
+    valid_time  (time) datetime64[ns] ...
+Data variables:
+    z           (number, time, level, latitude, longitude) float32 ...
+    t           (number, time, level, latitude, longitude) float32 ...
+Attributes:
+    GRIB_edition:            1
+    GRIB_centre:             ecmf
+    GRIB_centreDescription:  European Centre for Medium-Range Weather Forecasts
+    GRIB_subCentre:          0
+    Conventions:             CF-1.7
+    institution:             European Centre for Medium-Range Weather Forecasts
+    history:                 ...
 ```
 
-## Workflow for developers/contributors
+To translate to the Common Data Model of the Climate Data Store use:
 
-For best experience create a new conda environment (e.g. DEVELOP) with Python 3.10:
+```python
 
+>>> import cf2cdm
+>>> cf2cdm.translate_coords(ds, cf2cdm.CDS)
+<xarray.Dataset>
+Dimensions:                  (realization: 10, forecast_reference_time: 4,
+                              plev: 2, lat: 61, lon: 120)
+Coordinates:
+  * realization              (realization) int64 0 1 2 3 4 5 6 7 8 9
+  * forecast_reference_time  (forecast_reference_time) datetime64[ns] 2017-01...
+    leadtime                 timedelta64[ns] ...
+  * plev                     (plev) float64 8.5e+04 5e+04
+  * lat                      (lat) float64 -90.0 -87.0 -84.0 ... 84.0 87.0 90.0
+  * lon                      (lon) float64 0.0 3.0 6.0 9.0 ... 351.0 354.0 357.0
+    time                     (forecast_reference_time) datetime64[ns] ...
+Data variables:
+    z                        (realization, forecast_reference_time, plev, lat, lon) float32 ...
+    t                        (realization, forecast_reference_time, plev, lat, lon) float32 ...
+Attributes:
+    GRIB_edition:            1
+    GRIB_centre:             ecmf
+    GRIB_centreDescription:  European Centre for Medium-Range Weather Forecasts
+    GRIB_subCentre:          0
+    Conventions:             CF-1.7
+    institution:             European Centre for Medium-Range Weather Forecasts
+    history:                 ...
 ```
-conda create -n DEVELOP -c conda-forge python=3.10
-conda activate DEVELOP
-```
-
-Before pushing to GitHub, run the following commands:
-
-1. Update conda environment: `make conda-env-update`
-1. Install this package: `pip install -e .`
-1. Sync with the latest [template](https://github.com/ecmwf-projects/cookiecutter-conda-package) (optional): `make template-update`
-1. Run quality assurance checks: `make qa`
-1. Run tests: `make unit-tests`
-1. Run the static type checker: `make type-check`
-1. Build the documentation (see [Sphinx tutorial](https://www.sphinx-doc.org/en/master/tutorial/)): `make docs-build`
 
 ## License
 
