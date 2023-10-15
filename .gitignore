@@ -1,3 +1,6 @@
+# project specific
+*.idx
+
 # setuptools-scm
 version.py
 
