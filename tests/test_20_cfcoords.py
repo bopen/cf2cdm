@@ -1,11 +1,7 @@
 import sys
-import typing as T
 
 import numpy as np
 import pytest
-
-pytest.importorskip("xarray")  # noqa
-
 import xarray as xr
 
 from cf2cdm import cfcoords
@@ -63,7 +59,11 @@ def da3() -> xr.Dataset:
         coords=[
             ("lat", latitude, {"units": "degrees_north"}),
             ("lon", longitude, {"units": "degrees_east"}),
-            ("step", np.array(step, dtype="timedelta64[h]"), {"standard_name": "forecast_period"}),
+            (
+                "step",
+                np.array(step, dtype="timedelta64[h]"),
+                {"standard_name": "forecast_period"},
+            ),
             (
                 "ref_time",
                 np.array(time, dtype="datetime64[ns]"),
@@ -104,22 +104,34 @@ def test_translate_coord_direction(da1: xr.Dataset) -> None:
 
 
 def test_coord_translator(da1: xr.Dataset) -> None:
-    res = cfcoords.coord_translator("level", "hPa", "decreasing", lambda x: False, "lvl", da1)
+    res = cfcoords.coord_translator(
+        "level", "hPa", "decreasing", lambda x: False, "lvl", da1
+    )
     assert da1.equals(res)
 
     with pytest.raises(ValueError):
-        cfcoords.coord_translator("level", "hPa", "decreasing", lambda x: True, "lvl", da1)
+        cfcoords.coord_translator(
+            "level", "hPa", "decreasing", lambda x: True, "lvl", da1
+        )
 
-    res = cfcoords.coord_translator("level", "hPa", "decreasing", cfcoords.is_isobaric, "lvl", da1)
+    res = cfcoords.coord_translator(
+        "level", "hPa", "decreasing", cfcoords.is_isobaric, "lvl", da1
+    )
     assert da1.equals(res)
 
     with pytest.raises(ValueError):
-        cfcoords.coord_translator("level", "hPa", "decreasing", cfcoords.is_latitude, "lvl", da1)
+        cfcoords.coord_translator(
+            "level", "hPa", "decreasing", cfcoords.is_latitude, "lvl", da1
+        )
 
-    res = cfcoords.coord_translator("level", "Pa", "decreasing", cfcoords.is_isobaric, "lvl", da1)
+    res = cfcoords.coord_translator(
+        "level", "Pa", "decreasing", cfcoords.is_isobaric, "lvl", da1
+    )
     assert not da1.equals(res)
 
-    res = cfcoords.coord_translator("step", "h", "increasing", cfcoords.is_step, "step", da1)
+    res = cfcoords.coord_translator(
+        "step", "h", "increasing", cfcoords.is_step, "step", da1
+    )
     assert da1.equals(res)
 
 

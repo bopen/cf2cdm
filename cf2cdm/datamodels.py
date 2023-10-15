@@ -22,8 +22,16 @@ CDS = {
     "latitude": {"out_name": "lat", "stored_direction": "increasing"},
     "longitude": {"out_name": "lon", "stored_direction": "increasing"},
     # vertical
-    "depthBelowLand": {"out_name": "depth", "units": "m", "stored_direction": "increasing"},
-    "isobaricInhPa": {"out_name": "plev", "units": "Pa", "stored_direction": "decreasing"},
+    "depthBelowLand": {
+        "out_name": "depth",
+        "units": "m",
+        "stored_direction": "increasing",
+    },
+    "isobaricInhPa": {
+        "out_name": "plev",
+        "units": "Pa",
+        "stored_direction": "decreasing",
+    },
     # ensemble
     "number": {"out_name": "realization", "stored_direction": "increasing"},
     # time
@@ -35,8 +43,20 @@ CDS = {
 
 
 ECMWF = {
-    "depthBelowLand": {"out_name": "level", "units": "m", "stored_direction": "increasing"},
-    "isobaricInhPa": {"out_name": "level", "units": "hPa", "stored_direction": "decreasing"},
-    "isobaricInPa": {"out_name": "level", "units": "hPa", "stored_direction": "decreasing"},
+    "depthBelowLand": {
+        "out_name": "level",
+        "units": "m",
+        "stored_direction": "increasing",
+    },
+    "isobaricInhPa": {
+        "out_name": "level",
+        "units": "hPa",
+        "stored_direction": "decreasing",
+    },
+    "isobaricInPa": {
+        "out_name": "level",
+        "units": "hPa",
+        "stored_direction": "decreasing",
+    },
     "hybrid": {"out_name": "level", "stored_direction": "increasing"},
 }

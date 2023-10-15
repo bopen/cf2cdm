@@ -67,7 +67,9 @@ def coord_translator(
 ) -> xr.Dataset:
     out_name = coord_model.get(cf_type, {}).get("out_name", default_out_name)
     units = coord_model.get(cf_type, {}).get("units", default_units)
-    stored_direction = coord_model.get(cf_type, {}).get("stored_direction", default_direction)
+    stored_direction = coord_model.get(cf_type, {}).get(
+        "stored_direction", default_direction
+    )
     matches = match_values(is_cf_type, data.coords)
     if len(matches) > 1:
         raise ValueError("found more than one CF coordinate with type %r." % cf_type)
@@ -76,11 +78,15 @@ def coord_translator(
     match = matches[0]
     for name in data.coords:
         if name == out_name and name != match:
-            raise ValueError("found non CF compliant coordinate with type %r." % cf_type)
+            raise ValueError(
+                "found non CF compliant coordinate with type %r." % cf_type
+            )
     data = data.rename({match: out_name})
     coord = data.coords[out_name]
     if "units" in coord.attrs:
-        data.coords[out_name] = cfunits.convert_units(coord, units, coord.attrs["units"])
+        data.coords[out_name] = cfunits.convert_units(
+            coord, units, coord.attrs["units"]
+        )
         data.coords[out_name].attrs.update(coord.attrs)
         data.coords[out_name].attrs["units"] = units
     if out_name in data.dims:
@@ -88,7 +94,14 @@ def coord_translator(
     return data
 
 
-VALID_LAT_UNITS = ["degrees_north", "degree_north", "degree_N", "degrees_N", "degreeN", "degreesN"]
+VALID_LAT_UNITS = [
+    "degrees_north",
+    "degree_north",
+    "degree_N",
+    "degrees_N",
+    "degreeN",
+    "degreesN",
+]
 
 
 def is_latitude(coord: xr.IndexVariable) -> bool:
@@ -100,7 +113,14 @@ COORD_TRANSLATORS["latitude"] = functools.partial(
 )
 
 
-VALID_LON_UNITS = ["degrees_east", "degree_east", "degree_E", "degrees_E", "degreeE", "degreesE"]
+VALID_LON_UNITS = [
+    "degrees_east",
+    "degree_east",
+    "degree_E",
+    "degrees_E",
+    "degreeE",
+    "degreesE",
+]
 
 
 def is_longitude(coord: xr.IndexVariable) -> bool:
@@ -128,7 +148,9 @@ def is_step(coord: xr.IndexVariable) -> bool:
     return coord.attrs.get("standard_name") == "forecast_period"
 
 
-COORD_TRANSLATORS["step"] = functools.partial(coord_translator, "step", "h", "increasing", is_step)
+COORD_TRANSLATORS["step"] = functools.partial(
+    coord_translator, "step", "h", "increasing", is_step
+)
 
 
 def is_valid_time(coord: xr.IndexVariable) -> bool:
@@ -188,7 +210,7 @@ def translate_coords(
     for cf_name, translator in coord_translators.items():
         try:
             data = translator(cf_name, data, coord_model)
-        except:
+        except Exception:
             if errors == "ignore":
                 pass
             elif errors == "raise":

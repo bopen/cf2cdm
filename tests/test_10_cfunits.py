@@ -1,7 +1,3 @@
-import pytest
-
-xr = pytest.importorskip("xarray")  # noqa
-
 from cf2cdm import cfunits
 
 
