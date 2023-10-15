@@ -16,8 +16,8 @@ sys.path.insert(0, os.path.abspath("../"))
 # -- Project information -----------------------------------------------------
 
 project = "cf2cdm"
-copyright = "2017, European Union"
-author = "European Union"
+copyright = "2017 European Centre for Medium-Range Weather Forecasts (ECMWF)"
+author = "Alessandro Amici <a.amici@bopen.eu>"
 version = cf2cdm.__version__
 release = cf2cdm.__version__
 
