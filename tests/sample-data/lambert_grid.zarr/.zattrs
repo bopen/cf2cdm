@@ -1,0 +1,9 @@
+{
+    "Conventions": "CF-1.7",
+    "GRIB_centre": "96",
+    "GRIB_centreDescription": "Athens",
+    "GRIB_edition": 1,
+    "GRIB_subCentre": 99,
+    "history": "2023-10-15T20:40 GRIB to CDM+CF via cfgrib-0.9.10.4/ecCodes-2.32.0 with {\"source\": \"tests/sample-data/lambert_grid.grib\", \"filter_by_keys\": {}, \"encode_cf\": [\"parameter\", \"time\", \"geography\", \"vertical\"]}",
+    "institution": "Athens"
+}

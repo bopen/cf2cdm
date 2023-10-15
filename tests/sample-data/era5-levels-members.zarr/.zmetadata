@@ -1,0 +1,342 @@
+{
+    "metadata": {
+        ".zattrs": {
+            "Conventions": "CF-1.7",
+            "GRIB_centre": "ecmf",
+            "GRIB_centreDescription": "European Centre for Medium-Range Weather Forecasts",
+            "GRIB_edition": 1,
+            "GRIB_subCentre": 0,
+            "history": "2023-10-15T20:41 GRIB to CDM+CF via cfgrib-0.9.10.4/ecCodes-2.32.0 with {\"source\": \"tests/sample-data/era5-levels-members.grib\", \"filter_by_keys\": {}, \"encode_cf\": [\"parameter\", \"time\", \"geography\", \"vertical\"]}",
+            "institution": "European Centre for Medium-Range Weather Forecasts"
+        },
+        ".zgroup": {
+            "zarr_format": 2
+        },
+        "isobaricInhPa/.zarray": {
+            "chunks": [
+                2
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f8",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [
+                2
+            ],
+            "zarr_format": 2
+        },
+        "isobaricInhPa/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "isobaricInhPa"
+            ],
+            "long_name": "pressure",
+            "positive": "down",
+            "standard_name": "air_pressure",
+            "stored_direction": "decreasing",
+            "units": "hPa"
+        },
+        "latitude/.zarray": {
+            "chunks": [
+                61
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f8",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [
+                61
+            ],
+            "zarr_format": 2
+        },
+        "latitude/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "latitude"
+            ],
+            "long_name": "latitude",
+            "standard_name": "latitude",
+            "stored_direction": "decreasing",
+            "units": "degrees_north"
+        },
+        "longitude/.zarray": {
+            "chunks": [
+                120
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f8",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [
+                120
+            ],
+            "zarr_format": 2
+        },
+        "longitude/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "longitude"
+            ],
+            "long_name": "longitude",
+            "standard_name": "longitude",
+            "units": "degrees_east"
+        },
+        "number/.zarray": {
+            "chunks": [
+                10
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<i8",
+            "fill_value": null,
+            "filters": null,
+            "order": "C",
+            "shape": [
+                10
+            ],
+            "zarr_format": 2
+        },
+        "number/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "number"
+            ],
+            "long_name": "ensemble member numerical id",
+            "standard_name": "realization",
+            "units": "1"
+        },
+        "step/.zarray": {
+            "chunks": [],
+            "compressor": null,
+            "dtype": "<f8",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [],
+            "zarr_format": 2
+        },
+        "step/.zattrs": {
+            "_ARRAY_DIMENSIONS": [],
+            "long_name": "time since forecast_reference_time",
+            "standard_name": "forecast_period",
+            "units": "hours"
+        },
+        "t/.zarray": {
+            "chunks": [
+                10,
+                4,
+                2,
+                61,
+                120
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f4",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [
+                10,
+                4,
+                2,
+                61,
+                120
+            ],
+            "zarr_format": 2
+        },
+        "t/.zattrs": {
+            "GRIB_NV": 0,
+            "GRIB_Nx": 120,
+            "GRIB_Ny": 61,
+            "GRIB_cfName": "air_temperature",
+            "GRIB_cfVarName": "t",
+            "GRIB_dataType": "an",
+            "GRIB_gridDefinitionDescription": "Latitude/Longitude Grid",
+            "GRIB_gridType": "regular_ll",
+            "GRIB_iDirectionIncrementInDegrees": 3.0,
+            "GRIB_iScansNegatively": 0,
+            "GRIB_jDirectionIncrementInDegrees": 3.0,
+            "GRIB_jPointsAreConsecutive": 0,
+            "GRIB_jScansPositively": 0,
+            "GRIB_latitudeOfFirstGridPointInDegrees": 90.0,
+            "GRIB_latitudeOfLastGridPointInDegrees": -90.0,
+            "GRIB_longitudeOfFirstGridPointInDegrees": 0.0,
+            "GRIB_longitudeOfLastGridPointInDegrees": 357.0,
+            "GRIB_missingValue": 3.4028234663852886e+38,
+            "GRIB_name": "Temperature",
+            "GRIB_numberOfPoints": 7320,
+            "GRIB_paramId": 130,
+            "GRIB_shortName": "t",
+            "GRIB_stepType": "instant",
+            "GRIB_stepUnits": 1,
+            "GRIB_totalNumber": 10,
+            "GRIB_typeOfLevel": "isobaricInhPa",
+            "GRIB_units": "K",
+            "_ARRAY_DIMENSIONS": [
+                "number",
+                "time",
+                "isobaricInhPa",
+                "latitude",
+                "longitude"
+            ],
+            "coordinates": "number time step isobaricInhPa latitude longitude valid_time",
+            "long_name": "Temperature",
+            "standard_name": "air_temperature",
+            "units": "K"
+        },
+        "time/.zarray": {
+            "chunks": [
+                4
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<i8",
+            "fill_value": null,
+            "filters": null,
+            "order": "C",
+            "shape": [
+                4
+            ],
+            "zarr_format": 2
+        },
+        "time/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "time"
+            ],
+            "calendar": "proleptic_gregorian",
+            "long_name": "initial time of forecast",
+            "standard_name": "forecast_reference_time",
+            "units": "seconds since 1970-01-01"
+        },
+        "valid_time/.zarray": {
+            "chunks": [
+                4
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f8",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [
+                4
+            ],
+            "zarr_format": 2
+        },
+        "valid_time/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "time"
+            ],
+            "calendar": "proleptic_gregorian",
+            "long_name": "time",
+            "standard_name": "time",
+            "units": "seconds since 1970-01-01"
+        },
+        "z/.zarray": {
+            "chunks": [
+                10,
+                4,
+                2,
+                61,
+                120
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f4",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [
+                10,
+                4,
+                2,
+                61,
+                120
+            ],
+            "zarr_format": 2
+        },
+        "z/.zattrs": {
+            "GRIB_NV": 0,
+            "GRIB_Nx": 120,
+            "GRIB_Ny": 61,
+            "GRIB_cfName": "geopotential",
+            "GRIB_cfVarName": "z",
+            "GRIB_dataType": "an",
+            "GRIB_gridDefinitionDescription": "Latitude/Longitude Grid",
+            "GRIB_gridType": "regular_ll",
+            "GRIB_iDirectionIncrementInDegrees": 3.0,
+            "GRIB_iScansNegatively": 0,
+            "GRIB_jDirectionIncrementInDegrees": 3.0,
+            "GRIB_jPointsAreConsecutive": 0,
+            "GRIB_jScansPositively": 0,
+            "GRIB_latitudeOfFirstGridPointInDegrees": 90.0,
+            "GRIB_latitudeOfLastGridPointInDegrees": -90.0,
+            "GRIB_longitudeOfFirstGridPointInDegrees": 0.0,
+            "GRIB_longitudeOfLastGridPointInDegrees": 357.0,
+            "GRIB_missingValue": 3.4028234663852886e+38,
+            "GRIB_name": "Geopotential",
+            "GRIB_numberOfPoints": 7320,
+            "GRIB_paramId": 129,
+            "GRIB_shortName": "z",
+            "GRIB_stepType": "instant",
+            "GRIB_stepUnits": 1,
+            "GRIB_totalNumber": 10,
+            "GRIB_typeOfLevel": "isobaricInhPa",
+            "GRIB_units": "m**2 s**-2",
+            "_ARRAY_DIMENSIONS": [
+                "number",
+                "time",
+                "isobaricInhPa",
+                "latitude",
+                "longitude"
+            ],
+            "coordinates": "number time step isobaricInhPa latitude longitude valid_time",
+            "long_name": "Geopotential",
+            "standard_name": "geopotential",
+            "units": "m**2 s**-2"
+        }
+    },
+    "zarr_consolidated_format": 1
+}

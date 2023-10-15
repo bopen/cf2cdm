@@ -5,8 +5,8 @@ import xarray as xr
 from cf2cdm import cfcoords, datamodels
 
 SAMPLE_DATA_FOLDER = os.path.join(os.path.dirname(__file__), "sample-data")
-TEST_DATA1 = os.path.join(SAMPLE_DATA_FOLDER, "era5-levels-members.grib")
-TEST_DATA2 = os.path.join(SAMPLE_DATA_FOLDER, "lambert_grid.grib")
+TEST_DATA1 = os.path.join(SAMPLE_DATA_FOLDER, "era5-levels-members.zarr")
+TEST_DATA2 = os.path.join(SAMPLE_DATA_FOLDER, "lambert_grid.zarr")
 
 
 def test_cds() -> None:

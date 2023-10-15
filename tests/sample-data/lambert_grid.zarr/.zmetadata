@@ -1,0 +1,207 @@
+{
+    "metadata": {
+        ".zattrs": {
+            "Conventions": "CF-1.7",
+            "GRIB_centre": "96",
+            "GRIB_centreDescription": "Athens",
+            "GRIB_edition": 1,
+            "GRIB_subCentre": 99,
+            "history": "2023-10-15T20:40 GRIB to CDM+CF via cfgrib-0.9.10.4/ecCodes-2.32.0 with {\"source\": \"tests/sample-data/lambert_grid.grib\", \"filter_by_keys\": {}, \"encode_cf\": [\"parameter\", \"time\", \"geography\", \"vertical\"]}",
+            "institution": "Athens"
+        },
+        ".zgroup": {
+            "zarr_format": 2
+        },
+        "heightAboveGround/.zarray": {
+            "chunks": [],
+            "compressor": null,
+            "dtype": "<f8",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [],
+            "zarr_format": 2
+        },
+        "heightAboveGround/.zattrs": {
+            "_ARRAY_DIMENSIONS": [],
+            "long_name": "height above the surface",
+            "positive": "up",
+            "standard_name": "height",
+            "units": "m"
+        },
+        "latitude/.zarray": {
+            "chunks": [
+                475,
+                475
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f8",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [
+                475,
+                475
+            ],
+            "zarr_format": 2
+        },
+        "latitude/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "y",
+                "x"
+            ],
+            "long_name": "latitude",
+            "standard_name": "latitude",
+            "units": "degrees_north"
+        },
+        "longitude/.zarray": {
+            "chunks": [
+                475,
+                475
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f8",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [
+                475,
+                475
+            ],
+            "zarr_format": 2
+        },
+        "longitude/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "y",
+                "x"
+            ],
+            "long_name": "longitude",
+            "standard_name": "longitude",
+            "units": "degrees_east"
+        },
+        "p3112/.zarray": {
+            "chunks": [
+                475,
+                475
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f4",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [
+                475,
+                475
+            ],
+            "zarr_format": 2
+        },
+        "p3112/.zattrs": {
+            "GRIB_DxInMetres": 2500,
+            "GRIB_DyInMetres": 2500,
+            "GRIB_LaDInDegrees": 54,
+            "GRIB_Latin1InDegrees": 54.0,
+            "GRIB_Latin2InDegrees": 54.0,
+            "GRIB_LoVInDegrees": 3.0,
+            "GRIB_NV": 82,
+            "GRIB_Nx": 475,
+            "GRIB_Ny": 475,
+            "GRIB_cfName": "unknown",
+            "GRIB_cfVarName": "p3112",
+            "GRIB_gridDefinitionDescription": "Lambert Conformal",
+            "GRIB_gridType": "lambert",
+            "GRIB_iScansNegatively": 0,
+            "GRIB_jPointsAreConsecutive": 0,
+            "GRIB_jScansPositively": 1,
+            "GRIB_latitudeOfFirstGridPointInDegrees": 48.379,
+            "GRIB_latitudeOfSouthernPoleInDegrees": 0.0,
+            "GRIB_longitudeOfFirstGridPointInDegrees": -5.002,
+            "GRIB_longitudeOfSouthernPoleInDegrees": 0.0,
+            "GRIB_missingValue": 3.4028234663852886e+38,
+            "GRIB_name": "Net long-wave radiation flux (surface)",
+            "GRIB_numberOfPoints": 225625,
+            "GRIB_paramId": 3112,
+            "GRIB_shortName": "nlwrs",
+            "GRIB_stepType": "instant",
+            "GRIB_stepUnits": 1,
+            "GRIB_typeOfLevel": "heightAboveGround",
+            "GRIB_units": "W m**-2",
+            "_ARRAY_DIMENSIONS": [
+                "y",
+                "x"
+            ],
+            "coordinates": "time step heightAboveGround latitude longitude valid_time",
+            "long_name": "Net long-wave radiation flux (surface)",
+            "standard_name": "unknown",
+            "units": "W m**-2"
+        },
+        "step/.zarray": {
+            "chunks": [],
+            "compressor": null,
+            "dtype": "<f8",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [],
+            "zarr_format": 2
+        },
+        "step/.zattrs": {
+            "_ARRAY_DIMENSIONS": [],
+            "long_name": "time since forecast_reference_time",
+            "standard_name": "forecast_period",
+            "units": "hours"
+        },
+        "time/.zarray": {
+            "chunks": [],
+            "compressor": null,
+            "dtype": "<i8",
+            "fill_value": null,
+            "filters": null,
+            "order": "C",
+            "shape": [],
+            "zarr_format": 2
+        },
+        "time/.zattrs": {
+            "_ARRAY_DIMENSIONS": [],
+            "calendar": "proleptic_gregorian",
+            "long_name": "initial time of forecast",
+            "standard_name": "forecast_reference_time",
+            "units": "seconds since 1970-01-01"
+        },
+        "valid_time/.zarray": {
+            "chunks": [],
+            "compressor": null,
+            "dtype": "<f8",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [],
+            "zarr_format": 2
+        },
+        "valid_time/.zattrs": {
+            "_ARRAY_DIMENSIONS": [],
+            "calendar": "proleptic_gregorian",
+            "long_name": "time",
+            "standard_name": "time",
+            "units": "seconds since 1970-01-01"
+        }
+    },
+    "zarr_consolidated_format": 1
+}
