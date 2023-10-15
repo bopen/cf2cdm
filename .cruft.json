@@ -1,0 +1,18 @@
+{
+  "template": "https://github.com/ecmwf-projects/cookiecutter-conda-package",
+  "commit": "191546428eb8df6cb0d48b6a0a2726803b085143",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_name": "cf2cdm",
+      "project_slug": "cf2cdm",
+      "project_short_description": "Translate xarray dataset to a custom data model",
+      "copyright_holder": "European Union",
+      "copyright_year": "2017",
+      "mypy_strict": true,
+      "integration_tests": false,
+      "_template": "https://github.com/ecmwf-projects/cookiecutter-conda-package"
+    }
+  },
+  "directory": null
+}
